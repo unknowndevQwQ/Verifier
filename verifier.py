@@ -83,7 +83,7 @@ def verify():
 
         if response.status_code == 200:
             resp = response.json()
-            if resp["serial_number"] is not None:
+            if machine_code == resp["serial_number"]:
                 return jsonify(
                     {"verified": True, "authorization_code": authorization_code}
                 )
